@@ -1,9 +1,10 @@
 using UnityEngine;
 using Sirenix.OdinInspector;
+using Sirenix.Serialization;
 using System.Collections.Generic;
 
 [CreateAssetMenu(fileName = "ObjectsDataBase", menuName = "Scriptable Objects/ObjectsDataBase")]
-public class ObjectsDataBase : ScriptableObject
+public class ObjectsDataBase : SerializedScriptableObject
 {
     public Dictionary<int, ObjectsData> objectsGameDataBase = new();
 
@@ -14,7 +15,7 @@ public class ObjectsDataBase : ScriptableObject
             return obj;
         }
 
-        Debug.LogWarning($"No se encontro ningun objeto con el ID: {id}");
+        Debug.Log($"No se encontró ningún objeto con el ID: {id}");
         return null;
     }
 
@@ -24,7 +25,7 @@ public class ObjectsDataBase : ScriptableObject
 
         foreach (ObjectsData obj in objectsGameDataBase.Values)
         {
-            if (obj.objectType == type)
+            if (obj != null && obj.objectType == type)
             {
                 result.Add(obj);
             }

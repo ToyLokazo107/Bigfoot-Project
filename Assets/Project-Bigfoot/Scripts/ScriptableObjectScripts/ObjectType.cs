@@ -9,5 +9,6 @@ public enum ObjectType
     Document,
     Vehicle,
     Trap,
-    QuestItem
+    QuestItem,
+    Ammo
 }
