@@ -6,7 +6,7 @@ public class PlayerMovement : MonoBehaviour
     public float moveSpeed = 5f;
     public float jumpForce = 5f;
     public float gravity = -9.81f;
-    public float mouseSensitivity = 50f;
+    public float mouseSensitivity = 15f;
     public Transform groundCheck;
     public float groundDistance = 0.4f;
     public LayerMask groundLayer;
@@ -18,6 +18,11 @@ public class PlayerMovement : MonoBehaviour
     private float xRotation = 0f;
     private float yRotation = 0f;
 
+    private void Start()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+    }
     private void Awake()
     {
         controller = GetComponent<CharacterController>();

@@ -1597,6 +1597,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dd945fbe42f36946bc22d8d528ce15c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerInventory
+  slotActivo: 0
 --- !u!1 &1737546278
 GameObject:
   m_ObjectHideFlags: 0

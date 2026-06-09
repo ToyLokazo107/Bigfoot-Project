@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        ChangeStatus(GameStatus.MenuPrincipal);
+        ChangeStatus(GameStatus.EnCaceria);
     }
 
     public void ChangeStatus(GameStatus newStatus)

@@ -26,6 +26,15 @@ public class CicloDiaNoche : MonoBehaviour
         SolX = 15 * Hora;
 
         Sol.localEulerAngles = new Vector3(SolX, 0, 0);
+
+        if(Hora < 6 || Hora > 18)
+        {
+            Sol.GetComponent<Light>().intensity = 0;
+        }
+        else
+        {
+            Sol.GetComponent<Light>().intensity = 1;
+        }
     }
 
 
