@@ -14,7 +14,7 @@ public class MainMenuManager : MonoBehaviour
             GameManager.Instance.StartGame();
         }
 
-        SceneManager.LoadScene("Gameplay");
+        SceneManager.LoadScene("GamePlayKinematic");
     }
 
     public void OpenOptions()
