@@ -16,5 +16,6 @@ MonoBehaviour:
   objectName: Flashligth
   objectType: 5
   Icon: {fileID: 0}
+  objectPrefab: {fileID: 0}
   Description: Portable and usable object that emits light to illuminate dark or
     poorly visible spaces.

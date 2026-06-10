@@ -15,9 +15,9 @@ RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 10
   m_Fog: 0
-  m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  m_FogColor: {r: 0.103773594, g: 0.103773594, b: 0.103773594, a: 1}
   m_FogMode: 3
-  m_FogDensity: 0.01
+  m_FogDensity: 0.06
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
   m_AmbientSkyColor: {r: 0, g: 0, b: 0, a: 1}
@@ -1131,6 +1131,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ItemRecolectable
   objectName: Linterna
   iconoObjeto: {fileID: 21300000, guid: 2848b3e6a8fb6c1489f55960ffd861f4, type: 3}
+  datosDelObjeto: {fileID: 11400000, guid: a3c546dc427d31b478be4878eb423bc8, type: 2}
   luzLinterna: {fileID: 1268131946}
 --- !u!65 &1317259791
 BoxCollider:
@@ -1463,7 +1464,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fdf96a422fe9084ca8a9de7c7b42bcc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CicloDiaNoche
-  Hora: 20.73
+  Hora: 18.55
   Sol: {fileID: 1011705314}
   DuracionDiaMinutos: 24
 --- !u!4 &1558582553

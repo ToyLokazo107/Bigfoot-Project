@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class ItemRecolectable : InteractableObject
 {
+    public ObjectsData datosDelObjeto;
+
     [Header("Flashlight Settings")]
     public Light luzLinterna;
     private bool estaEncendida = false;
@@ -10,6 +12,11 @@ public class ItemRecolectable : InteractableObject
 
     private void Start()
     {
+        if (luzLinterna != null)
+        {
+            luzLinterna.enabled = false;
+            escalaOriginalMundo = transform.lossyScale;
+        }
         if (luzLinterna != null)
         {
             luzLinterna.enabled = false;

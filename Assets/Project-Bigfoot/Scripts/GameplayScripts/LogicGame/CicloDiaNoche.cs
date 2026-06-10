@@ -35,6 +35,7 @@ public class CicloDiaNoche : MonoBehaviour
         {
             Sol.GetComponent<Light>().intensity = 1;
         }
+        DynamicGI.UpdateEnvironment();
     }
 
 

@@ -17,6 +17,9 @@ public class ObjectsData : ScriptableObject
     [PreviewField(150)]
     public Sprite Icon;
 
+    [FoldoutGroup("Object References")]
+    public GameObject objectPrefab;
+
     [FoldoutGroup("Settings")]
     [TextArea(3, 10)]
     public string Description;
