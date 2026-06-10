@@ -57,7 +57,8 @@ public class ItemRecolectable : InteractableObject
             // transform.localPosition = Vector3.zero;
 
             transform.SetParent(puntoMano.transform, true);
-             transform.forward = Camera.main.transform.forward;
+            transform.position = puntoMano.transform.position;
+            transform.forward = Camera.main.transform.forward;
 
              estaEquipada = true;
              gameObject.SetActive(true);
