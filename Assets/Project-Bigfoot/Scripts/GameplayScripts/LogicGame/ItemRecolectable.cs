@@ -6,12 +6,14 @@ public class ItemRecolectable : InteractableObject
     public Light luzLinterna;
     private bool estaEncendida = false;
     private bool estaEquipada = false;
+    private Vector3 escalaOriginalMundo;
 
     private void Start()
     {
         if (luzLinterna != null)
         {
             luzLinterna.enabled = false;
+            escalaOriginalMundo = transform.lossyScale;
         }
     }
 
@@ -44,7 +46,7 @@ public class ItemRecolectable : InteractableObject
                 GetComponent<Collider>().enabled = false;
             }
 
-            transform.SetParent(puntoMano.transform);
+            transform.SetParent(puntoMano.transform, true);
             transform.localPosition = Vector3.zero;
 
             transform.localRotation = Quaternion.Euler(-0.158f, 0f, 0f);
@@ -65,38 +67,25 @@ public class ItemRecolectable : InteractableObject
 
     public void SoltarEnElSuelo()
     {
-        estaEquipada = false;
-
-        if (luzLinterna != null)
-        {
-            luzLinterna.enabled = false;
-            estaEncendida = false;
-        }
-
         transform.SetParent(null);
 
-        GameObject jugador = GameObject.FindWithTag("Player");
-        if (jugador != null)
+        transform.localScale = escalaOriginalMundo;
+        transform.rotation = Quaternion.identity;
+        transform.position += new Vector3(0f, 0.3f, 0f);
+
+        Collider col = GetComponent<Collider>();
+        if (col != null)
         {
-            transform.position = jugador.transform.position + jugador.transform.forward * 1.5f + Vector3.up * 0.5f;
+            col.enabled = true;
+            col.isTrigger = false;
         }
 
         Rigidbody rb = GetComponent<Rigidbody>();
         if (rb != null)
         {
             rb.isKinematic = false;
-            if (jugador != null)
-            {
-                rb.AddForce(jugador.transform.forward * 2f, ForceMode.Impulse);
-            }
+            rb.linearVelocity = Vector3.zero;
+            rb.angularVelocity = Vector3.zero;
         }
-
-        Collider col = GetComponent<Collider>();
-        if (col != null)
-        {
-            col.enabled = true;
-        }
-
-        gameObject.SetActive(true);
     }
 }
