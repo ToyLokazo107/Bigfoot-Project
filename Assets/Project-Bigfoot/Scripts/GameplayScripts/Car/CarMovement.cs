@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CarMovement : MonoBehaviour
 {
@@ -18,6 +19,7 @@ public class CarMovement : MonoBehaviour
 
         if (distanciaAlObjetivo <= distanciaMinima)
         {
+            SceneManager.LoadScene("GamePlay");
             return;
         }
 
