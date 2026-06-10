@@ -15,12 +15,12 @@ public class ItemRecolectable : InteractableObject
         if (luzLinterna != null)
         {
             luzLinterna.enabled = false;
-            escalaOriginalMundo = transform.lossyScale;
+           // escalaOriginalMundo = transform.lossyScale;
         }
         if (luzLinterna != null)
         {
             luzLinterna.enabled = false;
-            escalaOriginalMundo = transform.lossyScale;
+           // escalaOriginalMundo = transform.lossyScale;
         }
     }
 
@@ -42,25 +42,26 @@ public class ItemRecolectable : InteractableObject
     {
         GameObject puntoMano = GameObject.Find("ManoDerecha");
 
-        if (puntoMano != null)
-        {
-            if (GetComponent<Rigidbody>() != null)
-            {
-                GetComponent<Rigidbody>().isKinematic = true;
-            }
-            if (GetComponent<Collider>() != null)
-            {
-                GetComponent<Collider>().enabled = false;
-            }
+         if (puntoMano != null)
+         {
+             if (GetComponent<Rigidbody>() != null)
+             {
+                 GetComponent<Rigidbody>().isKinematic = true;
+             }
+             if (GetComponent<Collider>() != null)
+             {
+                 GetComponent<Collider>().enabled = false;
+             }
+
+
+            // transform.localPosition = Vector3.zero;
 
             transform.SetParent(puntoMano.transform, true);
-            transform.localPosition = Vector3.zero;
+             transform.forward = Camera.main.transform.forward;
 
-            transform.localRotation = Quaternion.Euler(-0.158f, 0f, 0f);
-
-            estaEquipada = true;
-            gameObject.SetActive(true);
-        }
+             estaEquipada = true;
+             gameObject.SetActive(true);
+         }
     }
 
     public void AlternarUso()
@@ -76,9 +77,9 @@ public class ItemRecolectable : InteractableObject
     {
         transform.SetParent(null);
 
-        transform.localScale = escalaOriginalMundo;
-        transform.rotation = Quaternion.identity;
-        transform.position += new Vector3(0f, 0.3f, 0f);
+       // transform.localScale = escalaOriginalMundo;
+        transform.forward = Camera.main.transform.forward;
+      //  transform.position += new Vector3(0f, 0.3f, 0f);
 
         Collider col = GetComponent<Collider>();
         if (col != null)
