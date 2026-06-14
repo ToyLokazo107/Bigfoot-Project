@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 913f5a7f2b369144a821d89b07f639d7, type: 3}
-  m_Name: Videocassette
+  m_Name: NoteLucia
   m_EditorClassIdentifier: Assembly-CSharp::ObjectsData
-  ID: 16
-  objectName: Videocassette
-  objectType: 5
-  Icon: {fileID: 0}
+  ID: 18
+  objectName: NoteLucia
+  objectType: 6
+  Icon: {fileID: -11486248, guid: 474571e0bd0bdca40a176e7c91498aba, type: 3}
   objectPrefab: {fileID: 0}
-  Description: It is needed for the cassette to work
+  Description: Object being sought on the map.

@@ -12,6 +12,9 @@ public class ItemRecolectable : InteractableObject
 
     private void Start()
     {
+        objectName = datosDelObjeto.objectName;
+        iconoObjeto = datosDelObjeto.Icon;
+
         if (luzLinterna != null)
         {
             luzLinterna.enabled = false;

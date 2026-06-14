@@ -15,7 +15,7 @@ MonoBehaviour:
   ID: 11
   objectName: Flashligth
   objectType: 5
-  Icon: {fileID: 0}
+  Icon: {fileID: 21300000, guid: 2848b3e6a8fb6c1489f55960ffd861f4, type: 3}
   objectPrefab: {fileID: 0}
   Description: Portable and usable object that emits light to illuminate dark or
     poorly visible spaces.

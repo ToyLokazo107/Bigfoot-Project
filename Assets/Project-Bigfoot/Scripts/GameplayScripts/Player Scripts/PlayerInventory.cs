@@ -116,4 +116,39 @@ public class PlayerInventory : MonoBehaviour
             OnInventoryChanged?.Invoke();
         }
     }
+    public void EliminarObjeto(InteractableObject objeto)
+    {
+        if (cabeza == null) return;
+
+        if (cabeza.DatosObjeto == objeto)
+        {
+            cabeza = cabeza.Siguiente;
+            cantidadActual--;
+
+            OnInventoryChanged?.Invoke();
+            ActualizarObjetosEnMano();
+
+            return;
+        }
+
+        ObjetoNodo actual = cabeza;
+
+        while (actual.Siguiente != null)
+        {
+            if (actual.Siguiente.DatosObjeto == objeto)
+            {
+                actual.Siguiente =
+                    actual.Siguiente.Siguiente;
+
+                cantidadActual--;
+
+                OnInventoryChanged?.Invoke();
+                ActualizarObjetosEnMano();
+
+                return;
+            }
+
+            actual = actual.Siguiente;
+        }
+    }
 }
