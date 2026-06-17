@@ -1,5 +1,6 @@
-using UnityEngine;
 using System;
+using UnityEngine;
+using UnityEngine.Windows;
 
 public class InputController : MonoBehaviour
 {
@@ -22,6 +23,9 @@ public class InputController : MonoBehaviour
         playerControls.Player.Move.performed += ctx => MoveInput = ctx.ReadValue<Vector2>();
         playerControls.Player.Move.canceled += ctx => MoveInput = Vector2.zero;
 
+        playerControls.Player.Sprint.started += ctx => isSprinting = true;
+        playerControls.Player.Sprint.canceled += ctx => isSprinting = false;
+
         playerControls.Player.Look.performed += ctx => LookInput = ctx.ReadValue<Vector2>();
         playerControls.Player.Look.canceled += ctx => LookInput = Vector2.zero;
 
@@ -29,6 +33,7 @@ public class InputController : MonoBehaviour
 
         playerControls.Player.Interact.started += ctx => HandleInteraction();
         playerControls.Player.Attack.started += ctx => HandleUseItem();
+
 
         playerControls.Player.Drop.started += ctx => HandleDropItem();
         playerControls.Player.Slot1.started += ctx => HandleSwitchSlot(0); 
@@ -50,7 +55,7 @@ public class InputController : MonoBehaviour
         if (GameManager.Instance != null && GameManager.Instance.currentStatus != GameStatus.EnCaceria)
             return;
 
-        playerMovement.ProcessMovement(MoveInput);
+        playerMovement.ProcessMovement(MoveInput, isSprinting);
         playerMovement.ProcessLook(LookInput);
     }
 
@@ -128,5 +133,11 @@ public class InputController : MonoBehaviour
     private void OnDisable()
     {
         DisableInput();
+    }
+    private bool isSprinting;
+
+    public bool IsSprinting()
+    {
+        return isSprinting;
     }
 }
