@@ -3,152 +3,142 @@ using System;
 
 public class PlayerInventory : MonoBehaviour
 {
-    private ObjetoNodo cabeza = null;
-    private int cantidadActual = 0;
-    private const int CAPACIDAD_MAXIMA = 3;
+    public static PlayerInventory Instance;
+
+    private ObjetoNodo head = null;
+    private int currentAmount = 0;
+
+    [Header("Inventory Settings")]
+    [SerializeField] private int maxCapacity = 3;
+
+    [Header("Slot System")]
+    public int activeSlot = 0;
 
     public Action OnInventoryChanged;
+    public Action<int> OnSlotChanged;
 
-    public bool AgregarObjeto(InteractableObject nuevoObjeto)
+    private void Awake()
     {
-        if (cantidadActual >= CAPACIDAD_MAXIMA)
+        Instance = this;
+    }
+
+    public bool AddObject(InteractableObject newObject)
+    {
+        if (currentAmount >= maxCapacity)
         {
-            Debug.Log("Inventario lleno");
+            Debug.Log("Inventory full");
             return false;
         }
 
-        ObjetoNodo nuevoNodo = new ObjetoNodo(nuevoObjeto);
+        ObjetoNodo newNode = new ObjetoNodo(newObject);
 
-        if (cabeza == null)
+        if (head == null)
         {
-            cabeza = nuevoNodo;
+            head = newNode;
         }
         else
         {
-            ObjetoNodo actual = cabeza;
-            while (actual.Siguiente != null)
+            ObjetoNodo current = head;
+
+            while (current.Siguiente != null)
             {
-                actual = actual.Siguiente;
+                current = current.Siguiente;
             }
-            actual.Siguiente = nuevoNodo;
+
+            current.Siguiente = newNode;
         }
 
-        cantidadActual++;
+        currentAmount++;
         OnInventoryChanged?.Invoke();
+
         return true;
     }
 
-    public InteractableObject[] ObtenerArregloParaUI()
+    public InteractableObject[] GetItemsForUI()
     {
-        InteractableObject[] objetos = new InteractableObject[CAPACIDAD_MAXIMA];
-        ObjetoNodo actual = cabeza;
-        int indice = 0;
+        InteractableObject[] items = new InteractableObject[maxCapacity];
 
-        while (actual != null && indice < CAPACIDAD_MAXIMA)
+        ObjetoNodo current = head;
+        int index = 0;
+
+        while (current != null && index < maxCapacity)
         {
-            objetos[indice] = actual.DatosObjeto;
-            actual = actual.Siguiente;
-            indice++;
+            items[index] = current.DatosObjeto;
+            current = current.Siguiente;
+            index++;
         }
 
-        return objetos;
+        return items;
     }
 
-    [Header("Slot System")]
-    public int slotActivo = 0;
-
-    public System.Action<int> OnSlotChanged;
-
-    public void CambiarSlotActivo(int nuevoSlot)
+    public void ChangeActiveSlot(int newSlot)
     {
-        slotActivo = nuevoSlot;
-        Debug.Log("Cambiando al Slot: " + (slotActivo + 1));
+        if (newSlot < 0 || newSlot >= maxCapacity) return;
 
-        OnSlotChanged?.Invoke(slotActivo);
+        activeSlot = newSlot;
 
-        ActualizarObjetosEnMano();
+        Debug.Log("Changing to Slot: " + (activeSlot + 1));
+
+        OnSlotChanged?.Invoke(activeSlot);
+
+        PlayerHandController.Instance.EquipObject(GetCurrentObject());
     }
 
-    private void ActualizarObjetosEnMano()
+    public InteractableObject GetCurrentObject()
     {
-        GameObject puntoMano = GameObject.Find("ManoDerecha");
-        if (puntoMano == null) return;
+        InteractableObject[] items = GetItemsForUI();
 
-        foreach (Transform hijo in puntoMano.transform)
+        if (activeSlot < items.Length)
         {
-            hijo.gameObject.SetActive(false);
+            return items[activeSlot];
         }
 
-        InteractableObject[] lista = ObtenerArregloParaUI();
-
-        if (slotActivo < lista.Length && lista[slotActivo] != null)
-        {
-            lista[slotActivo].gameObject.SetActive(true);
-        }
+        return null;
     }
 
-    public void SoltarObjetoActual()
+    public void DropCurrentObject()
     {
-        InteractableObject[] lista = ObtenerArregloParaUI();
+        InteractableObject currentObject = GetCurrentObject();
 
-        if (slotActivo < lista.Length && lista[slotActivo] != null)
-        {
-            InteractableObject objetoASoltar = lista[slotActivo];
+        if (currentObject == null) return;
 
-            ItemRecolectable itemComponent = objetoASoltar.GetComponent<ItemRecolectable>();
-            if (itemComponent != null)
-            {
-                itemComponent.SoltarEnElSuelo();
-            }
-
-            cabeza = null;
-            cantidadActual = 0;
-
-            for (int i = 0; i < lista.Length; i++)
-            {
-                if (i != slotActivo && lista[i] != null)
-                {
-                    AgregarObjeto(lista[i]);
-                }
-            }
-
-            ActualizarObjetosEnMano();
-            OnInventoryChanged?.Invoke();
-        }
+        PlayerHandController.Instance.DropObject(currentObject);
+        RemoveObject(currentObject);
     }
-    public void EliminarObjeto(InteractableObject objeto)
-    {
-        if (cabeza == null) return;
 
-        if (cabeza.DatosObjeto == objeto)
+    public void RemoveObject(InteractableObject objectToRemove)
+    {
+        if (head == null || objectToRemove == null) return;
+
+        if (head.DatosObjeto == objectToRemove)
         {
-            cabeza = cabeza.Siguiente;
-            cantidadActual--;
+            head = head.Siguiente;
+            currentAmount--;
 
             OnInventoryChanged?.Invoke();
-            ActualizarObjetosEnMano();
+
+            PlayerHandController.Instance.EquipObject(GetCurrentObject());
 
             return;
         }
 
-        ObjetoNodo actual = cabeza;
+        ObjetoNodo current = head;
 
-        while (actual.Siguiente != null)
+        while (current.Siguiente != null)
         {
-            if (actual.Siguiente.DatosObjeto == objeto)
+            if (current.Siguiente.DatosObjeto == objectToRemove)
             {
-                actual.Siguiente =
-                    actual.Siguiente.Siguiente;
-
-                cantidadActual--;
+                current.Siguiente = current.Siguiente.Siguiente;
+                currentAmount--;
 
                 OnInventoryChanged?.Invoke();
-                ActualizarObjetosEnMano();
+
+                PlayerHandController.Instance.EquipObject(GetCurrentObject());
 
                 return;
             }
 
-            actual = actual.Siguiente;
+            current = current.Siguiente;
         }
     }
 }

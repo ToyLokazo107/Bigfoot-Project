@@ -38,18 +38,11 @@ public class InputController : MonoBehaviour
 
     private void HandleUseItem()
     {
-        if (GameManager.Instance != null && GameManager.Instance.currentStatus != GameStatus.EnCaceria)
+        if (GameManager.Instance != null &&
+            GameManager.Instance.currentStatus != GameStatus.EnCaceria)
             return;
 
-        GameObject puntoMano = GameObject.Find("ManoDerecha");
-        if (puntoMano != null && puntoMano.transform.childCount > 0)
-        {
-            ItemRecolectable itemEnMano = puntoMano.GetComponentInChildren<ItemRecolectable>();
-            if (itemEnMano != null)
-            {
-                itemEnMano.AlternarUso();
-            }
-        }
+        PlayerHandController.Instance.UseCurrentObject();
     }
 
     private void Update()
@@ -92,26 +85,20 @@ public class InputController : MonoBehaviour
 
     private void HandleDropItem()
     {
-        if (GameManager.Instance != null && GameManager.Instance.currentStatus != GameStatus.EnCaceria)
+        if (GameManager.Instance != null &&
+            GameManager.Instance.currentStatus != GameStatus.EnCaceria)
             return;
 
-        PlayerInventory inventario = FindFirstObjectByType<PlayerInventory>();
-        if (inventario != null)
-        {
-            inventario.SoltarObjetoActual();
-        }
+        PlayerInventory.Instance.DropCurrentObject();
     }
 
-    private void HandleSwitchSlot(int nuevoSlot)
+    private void HandleSwitchSlot(int newSlot)
     {
-        if (GameManager.Instance != null && GameManager.Instance.currentStatus != GameStatus.EnCaceria)
+        if (GameManager.Instance != null &&
+            GameManager.Instance.currentStatus != GameStatus.EnCaceria)
             return;
 
-        PlayerInventory inventario = FindFirstObjectByType<PlayerInventory>();
-        if (inventario != null)
-        {
-            inventario.CambiarSlotActivo(nuevoSlot);
-        }
+        PlayerInventory.Instance.ChangeActiveSlot(newSlot);
     }
 
     private void OnDrawGizmos()

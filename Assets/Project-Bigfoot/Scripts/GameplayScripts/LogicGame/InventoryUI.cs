@@ -4,43 +4,44 @@ using UnityEngine.UI;
 public class InventoryUI : MonoBehaviour
 {
     public PlayerInventory playerInventory;
-    public Image[] slotsImagenes;
-    public Sprite slotVacioSprite;
+    public Image[] slotImages;
+    public Sprite emptySlotSprite;
 
     private void Start()
     {
         if (playerInventory != null)
         {
-            playerInventory.OnInventoryChanged += ActualizarInterfaz;
+            playerInventory.OnInventoryChanged += UpdateUI;
         }
-        ActualizarInterfaz();
+
+        UpdateUI();
     }
 
     private void OnDestroy()
     {
         if (playerInventory != null)
         {
-            playerInventory.OnInventoryChanged -= ActualizarInterfaz;
+            playerInventory.OnInventoryChanged -= UpdateUI;
         }
     }
 
-    public void ActualizarInterfaz()
+    public void UpdateUI()
     {
         if (playerInventory == null) return;
 
-        InteractableObject[] listaObjetos = playerInventory.ObtenerArregloParaUI();
+        InteractableObject[] itemList = playerInventory.GetItemsForUI();
 
-        for (int i = 0; i < slotsImagenes.Length; i++)
+        for (int i = 0; i < slotImages.Length; i++)
         {
-            if (i < listaObjetos.Length && listaObjetos[i] != null)
+            if (i < itemList.Length && itemList[i] != null)
             {
-                slotsImagenes[i].sprite = listaObjetos[i].iconoObjeto;
-                slotsImagenes[i].color = Color.white;
+                slotImages[i].sprite = itemList[i].iconoObjeto;
+                slotImages[i].color = Color.white;
             }
             else
             {
-                slotsImagenes[i].sprite = slotVacioSprite;
-                slotsImagenes[i].color = new Color(1f, 1f, 1f, 0f);
+                slotImages[i].sprite = emptySlotSprite;
+                slotImages[i].color = new Color(1f, 1f, 1f, 0f);
             }
         }
     }

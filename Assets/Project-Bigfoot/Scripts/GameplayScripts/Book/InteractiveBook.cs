@@ -21,7 +21,7 @@ public class InteractiveBook : InteractableObject
     {
         PlayerInventory inventario = FindFirstObjectByType<PlayerInventory>();
 
-        InteractableObject[] objetos = inventario.ObtenerArregloParaUI();
+        InteractableObject[] objetos = PlayerInventory.Instance.GetItemsForUI();
 
         foreach (InteractableObject objeto in objetos)
         {
@@ -35,7 +35,7 @@ public class InteractiveBook : InteractableObject
             {
                 case 17:
                     textoMateo.gameObject.SetActive(true);
-                    inventario.EliminarObjeto(objeto);
+                    PlayerInventory.Instance.RemoveObject(objeto);
                     StartCoroutine(OcultarTexto(textoMateo));
                     BookManager.instance.AgregarNota();
                     Debug.Log("Nota Mateo colocada");
@@ -43,7 +43,7 @@ public class InteractiveBook : InteractableObject
 
                 case 18:
                     textoLucia.gameObject.SetActive(true);
-                    inventario.EliminarObjeto(objeto);
+                    PlayerInventory.Instance.RemoveObject(objeto);
                     StartCoroutine(OcultarTexto(textoLucia));
                     BookManager.instance.AgregarNota();
                     Debug.Log("Nota Lucía colocada");
@@ -51,7 +51,7 @@ public class InteractiveBook : InteractableObject
 
                 case 19:
                     textoDiego.gameObject.SetActive(true);
-                    inventario.EliminarObjeto(objeto);
+                    PlayerInventory.Instance.RemoveObject(objeto);
                     StartCoroutine(OcultarTexto(textoDiego));
                     BookManager.instance.AgregarNota();
                     Debug.Log("Nota Diego colocada");
@@ -59,7 +59,7 @@ public class InteractiveBook : InteractableObject
 
                 case 20:
                     textoCamila.gameObject.SetActive(true);
-                    inventario.EliminarObjeto(objeto);
+                    PlayerInventory.Instance.RemoveObject(objeto);
                     StartCoroutine(OcultarTexto(textoCamila));
                     BookManager.instance.AgregarNota();
                     Debug.Log("Nota Camila colocada");
@@ -67,7 +67,7 @@ public class InteractiveBook : InteractableObject
 
                 case 21:
                     textoJavier.gameObject.SetActive(true);
-                    inventario.EliminarObjeto(objeto);
+                    PlayerInventory.Instance.RemoveObject(objeto);
                     StartCoroutine(OcultarTexto(textoJavier));
                     BookManager.instance.AgregarNota();
                     Debug.Log("Nota Javier colocada");

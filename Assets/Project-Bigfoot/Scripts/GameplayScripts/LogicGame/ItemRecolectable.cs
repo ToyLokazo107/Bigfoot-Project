@@ -6,80 +6,66 @@ public class ItemRecolectable : InteractableObject
 
     [Header("Flashlight Settings")]
     public Light luzLinterna;
-    private bool estaEncendida = false;
-    private bool estaEquipada = false;
-    private Vector3 escalaOriginalMundo;
+
+    private bool isOn = false;
+    private bool isEquipped = false;
+    private Vector3 originalScale;
 
     private void Start()
     {
         objectName = datosDelObjeto.objectName;
         iconoObjeto = datosDelObjeto.Icon;
 
+        originalScale = transform.lossyScale;
+
         if (luzLinterna != null)
         {
             luzLinterna.enabled = false;
-            escalaOriginalMundo = transform.lossyScale;
-        }
-        if (luzLinterna != null)
-        {
-            luzLinterna.enabled = false;
-            escalaOriginalMundo = transform.lossyScale;
         }
     }
 
     public override void Interact()
     {
-        PlayerInventory inventario = FindFirstObjectByType<PlayerInventory>();
+        if (PlayerInventory.Instance == null) return;
 
-        if (inventario != null)
+        bool added = PlayerInventory.Instance.AddObject(this);
+
+        if (added)
         {
-            bool exito = inventario.AgregarObjeto(this);
-            if (exito)
-            {
-                EquiparEnMano();
-            }
+            PlayerHandController.Instance.EquipObject(this);
         }
     }
 
-    private void EquiparEnMano()
+    public override void PrepareForInventory()
     {
-        GameObject puntoMano = GameObject.Find("ManoDerecha");
-
-        if (puntoMano != null)
+        Rigidbody rb = GetComponent<Rigidbody>();
+        if (rb != null)
         {
-            if (GetComponent<Rigidbody>() != null)
-            {
-                GetComponent<Rigidbody>().isKinematic = true;
-            }
-            if (GetComponent<Collider>() != null)
-            {
-                GetComponent<Collider>().enabled = false;
-            }
-
-            transform.SetParent(puntoMano.transform, true);
-            transform.localPosition = Vector3.zero;
-
-            transform.localRotation = Quaternion.Euler(-0.158f, 0f, 0f);
-
-            estaEquipada = true;
-            gameObject.SetActive(true);
+            rb.isKinematic = true;
         }
+
+        Collider col = GetComponent<Collider>();
+        if (col != null)
+        {
+            col.enabled = false;
+        }
+
+        isEquipped = true;
     }
 
-    public void AlternarUso()
+    public override void Use()
     {
-        if (!estaEquipada || luzLinterna == null) return;
+        if (!isEquipped || luzLinterna == null) return;
 
-        estaEncendida = !estaEncendida;
-        luzLinterna.enabled = estaEncendida;
-
+        isOn = !isOn;
+        luzLinterna.enabled = isOn;
     }
 
-    public void SoltarEnElSuelo()
+    public override void DropToGround()
     {
         transform.SetParent(null);
 
-        transform.localScale = escalaOriginalMundo;
+        transform.localScale = originalScale;
         transform.rotation = Quaternion.identity;
         transform.position += new Vector3(0f, 0.3f, 0f);
 
@@ -97,5 +83,7 @@ public class ItemRecolectable : InteractableObject
             rb.linearVelocity = Vector3.zero;
             rb.angularVelocity = Vector3.zero;
         }
+
+        isEquipped = false;
     }
 }
