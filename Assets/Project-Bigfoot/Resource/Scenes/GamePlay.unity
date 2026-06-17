@@ -128,16 +128,28 @@ PrefabInstance:
     m_TransformParent: {fileID: 890667004}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 25ec4ae8eed8a29479b9c29b81394d9b, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 6.0172124
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 25ec4ae8eed8a29479b9c29b81394d9b, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 3.2620013
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 25ec4ae8eed8a29479b9c29b81394d9b, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.3847537
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 25ec4ae8eed8a29479b9c29b81394d9b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.027
+      value: 0.029669113
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 25ec4ae8eed8a29479b9c29b81394d9b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.01
+      value: 0.04856282
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 25ec4ae8eed8a29479b9c29b81394d9b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.239
+      value: 0.018081507
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 25ec4ae8eed8a29479b9c29b81394d9b, type: 3}
       propertyPath: m_LocalRotation.w
@@ -464,8 +476,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbd252ee1469f714d919d19f9f496aae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BookManager
-  countertext: {fileID: 1971417773}
-  notesArchived: 0
+  counterText: {fileID: 1971417773}
 --- !u!4 &446403684
 Transform:
   m_ObjectHideFlags: 0
@@ -1143,8 +1154,8 @@ Transform:
   m_GameObject: {fileID: 890667003}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 914.832, y: 31.341, z: 40.97}
-  m_LocalScale: {x: 0.83822, y: 0.11970678, z: 1}
+  m_LocalPosition: {x: 914.847, y: 31.338, z: 40.728}
+  m_LocalScale: {x: 0.25714937, y: 0.086446255, z: 0.1660352}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 73437183}
@@ -1184,12 +1195,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InteractiveBook
   objectName: Book
-  iconoObjeto: {fileID: 0}
-  textoMateo: {fileID: 2098704283}
-  textoLucia: {fileID: 785251494}
-  textoDiego: {fileID: 2077510468}
-  textoCamila: {fileID: 958623276}
-  textoJavier: {fileID: 2138579497}
+  iconoObjeto: {fileID: -11486248, guid: 474571e0bd0bdca40a176e7c91498aba, type: 3}
+  noteTextEntries:
+  - noteID: 17
+    noteText: {fileID: 2098704283}
+  - noteID: 18
+    noteText: {fileID: 785251494}
+  - noteID: 19
+    noteText: {fileID: 2077510468}
+  - noteID: 20
+    noteText: {fileID: 958623276}
+  - noteID: 21
+    noteText: {fileID: 2138579497}
 --- !u!1 &958623274
 GameObject:
   m_ObjectHideFlags: 0
@@ -1339,7 +1356,6 @@ GameObject:
   - component: {fileID: 964690436}
   - component: {fileID: 964690439}
   - component: {fileID: 964690440}
-  - component: {fileID: 964690441}
   m_Layer: 0
   m_Name: CameraPlayer
   m_TagString: Untagged
@@ -1419,25 +1435,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineHardLockToTarget
   Damping: 0
---- !u!114 &964690441
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 964690435}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 28e2023ac4c6b204e9bad440d2cea142, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineSplineDollyLookAtTargets
-  Targets:
-    m_IndexUnit: 2
-    m_DefaultValue:
-      LookAt: {fileID: 0}
-      Offset: {x: 0, y: 0, z: 0}
-      Easing: 1
-    m_DataPoints: []
 --- !u!1001 &969594436
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1696,7 +1693,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventoryUI
   playerInventory: {fileID: 1659547172}
-  slotImages: []
+  slotImages:
+  - {fileID: 1737546279}
+  - {fileID: 1210290039}
+  - {fileID: 1933447585}
   emptySlotSprite: {fileID: 0}
 --- !u!1 &1210290038
 GameObject:
@@ -1737,7 +1737,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_Sprite: {fileID: 0}
-  m_Type: 0
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -1870,7 +1870,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cced8e67a7ea10f4d9e19a32004106e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CaveEntrance
-  paredInvisible: {fileID: 1988967786}
+  invisibleWall: {fileID: 1988967786}
 --- !u!1 &1254630547
 GameObject:
   m_ObjectHideFlags: 0
@@ -2864,7 +2864,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_Sprite: {fileID: 0}
-  m_Type: 0
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -3083,7 +3083,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_Sprite: {fileID: 0}
-  m_Type: 0
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4

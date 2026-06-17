@@ -2,21 +2,22 @@ using UnityEngine;
 
 public class CaveEntrance : MonoBehaviour
 {
-    public GameObject paredInvisible;
+    [SerializeField] private GameObject invisibleWall;
 
     private void OnTriggerEnter(Collider other)
     {
         if (!other.CompareTag("Player"))
-            return;
-
-        if (BookManager.instance.notesArchived < 5)
         {
-            Debug.Log("Necesito encontrar más información.");
             return;
         }
 
-        Debug.Log("Puedo entrar a la cueva.");
+        if (BookManager.Instance.GetNotesArchived() < 5)
+        {
+            Debug.Log("I need more information before entering.");
+            return;
+        }
 
-        paredInvisible.SetActive(false);
+        Debug.Log("I can enter the cave now.");
+        invisibleWall.SetActive(false);
     }
 }

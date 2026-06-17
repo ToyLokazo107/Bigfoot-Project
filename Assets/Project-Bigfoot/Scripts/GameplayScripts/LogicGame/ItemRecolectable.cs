@@ -24,6 +24,16 @@ public class ItemRecolectable : InteractableObject
         }
     }
 
+    public override int GetID()
+    {
+        return datosDelObjeto.ID;
+    }
+
+    public override string GetDescription()
+    {
+        return datosDelObjeto.Description;
+    }
+
     public override void Interact()
     {
         if (PlayerInventory.Instance == null) return;

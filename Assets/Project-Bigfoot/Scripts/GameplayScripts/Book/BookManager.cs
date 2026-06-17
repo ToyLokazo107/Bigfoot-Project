@@ -3,21 +3,34 @@ using UnityEngine;
 
 public class BookManager : MonoBehaviour
 {
-    public static BookManager instance;
+    public static BookManager Instance;
 
-    public TMP_Text countertext;
+    [SerializeField] private TMP_Text counterText;
 
-    public int notesArchived = 0;
+    private int notesArchived = 0;
 
     private void Awake()
     {
-        instance = this;
+        Instance = this;
     }
 
-    public void AgregarNota()
+    private void Start()
+    {
+        UpdateCounter();
+    }
+
+    public void AddNote()
     {
         notesArchived++;
+        UpdateCounter();
+    }
 
-        countertext.text =  "Notes: " + notesArchived + "/5";
+    private void UpdateCounter()
+    {
+        counterText.text = "Notes: " + notesArchived + "/5";
+    }
+    public int GetNotesArchived()
+    {
+        return notesArchived;
     }
 }

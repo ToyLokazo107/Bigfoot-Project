@@ -18,4 +18,12 @@ public abstract class InteractableObject : MonoBehaviour
     public virtual void DropToGround()
     {
     }
+    public virtual int GetID()
+    {
+        return -1;
+    }
+    public virtual string GetDescription()
+    {
+        return "";
+    }
 }

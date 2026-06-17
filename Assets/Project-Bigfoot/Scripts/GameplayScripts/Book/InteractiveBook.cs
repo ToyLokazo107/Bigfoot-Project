@@ -1,80 +1,65 @@
 using TMPro;
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class InteractiveBook : InteractableObject
 {
-    public TMP_Text textoMateo;
-    public TMP_Text textoLucia;
-    public TMP_Text textoDiego;
-    public TMP_Text textoCamila;
-    public TMP_Text textoJavier;
+    [Header("Note Text Entries")]
+    [SerializeField] private List<NoteTextEntry> noteTextEntries = new List<NoteTextEntry>();
 
-    private IEnumerator OcultarTexto(TMP_Text texto)
+    private Dictionary<int, TMP_Text> noteDictionary = new Dictionary<int, TMP_Text>();
+
+    private void Awake()
     {
-        yield return new WaitForSeconds(3f);
+        for (int i = 0; i < noteTextEntries.Count; i++)
+        {
+            int id = noteTextEntries[i].noteID;
+            TMP_Text text = noteTextEntries[i].noteText;
 
-        texto.gameObject.SetActive(false);
+            if (!noteDictionary.ContainsKey(id))
+            {
+                noteDictionary.Add(id, text);
+            }
+        }
     }
 
     public override void Interact()
     {
-        PlayerInventory inventario = FindFirstObjectByType<PlayerInventory>();
+        InteractableObject[] items = PlayerInventory.Instance.GetItemsForUI();
 
-        InteractableObject[] objetos = PlayerInventory.Instance.GetItemsForUI();
-
-        foreach (InteractableObject objeto in objetos)
+        for (int i = 0; i < items.Length; i++)
         {
-            if (objeto == null) continue;
-
-            ItemRecolectable item = objeto.GetComponent<ItemRecolectable>();
-
-            if (item == null || item.datosDelObjeto == null) continue;
-
-            switch (item.datosDelObjeto.ID)
+            if (items[i] == null)
             {
-                case 17:
-                    textoMateo.gameObject.SetActive(true);
-                    PlayerInventory.Instance.RemoveObject(objeto);
-                    StartCoroutine(OcultarTexto(textoMateo));
-                    BookManager.instance.AgregarNota();
-                    Debug.Log("Nota Mateo colocada");
-                    return;
+                continue;
+            }
 
-                case 18:
-                    textoLucia.gameObject.SetActive(true);
-                    PlayerInventory.Instance.RemoveObject(objeto);
-                    StartCoroutine(OcultarTexto(textoLucia));
-                    BookManager.instance.AgregarNota();
-                    Debug.Log("Nota Lucía colocada");
-                    return;
+            int id = items[i].GetID();
 
-                case 19:
-                    textoDiego.gameObject.SetActive(true);
-                    PlayerInventory.Instance.RemoveObject(objeto);
-                    StartCoroutine(OcultarTexto(textoDiego));
-                    BookManager.instance.AgregarNota();
-                    Debug.Log("Nota Diego colocada");
-                    return;
+            TMP_Text textToShow;
 
-                case 20:
-                    textoCamila.gameObject.SetActive(true);
-                    PlayerInventory.Instance.RemoveObject(objeto);
-                    StartCoroutine(OcultarTexto(textoCamila));
-                    BookManager.instance.AgregarNota();
-                    Debug.Log("Nota Camila colocada");
-                    return;
+            if (noteDictionary.TryGetValue(id, out textToShow))
+            {
+                StartCoroutine(ShowTextForSeconds(textToShow));
 
-                case 21:
-                    textoJavier.gameObject.SetActive(true);
-                    PlayerInventory.Instance.RemoveObject(objeto);
-                    StartCoroutine(OcultarTexto(textoJavier));
-                    BookManager.instance.AgregarNota();
-                    Debug.Log("Nota Javier colocada");
-                    return;
+                PlayerInventory.Instance.RemoveObject(items[i]);
+                BookManager.Instance.AddNote();
+
+                Debug.Log("Note archived: " + id);
+                return;
             }
         }
 
-        Debug.Log("No tienes ninguna nota válida");
+        Debug.Log("No valid note found");
+    }
+
+    private IEnumerator ShowTextForSeconds(TMP_Text text)
+    {
+        text.gameObject.SetActive(true);
+
+        yield return new WaitForSeconds(3f);
+
+        text.gameObject.SetActive(false);
     }
 }
