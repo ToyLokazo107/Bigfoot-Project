@@ -14,8 +14,8 @@ OcclusionCullingSettings:
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 10
-  m_Fog: 1
-  m_FogColor: {r: 0.103773594, g: 0.103773594, b: 0.103773594, a: 1}
+  m_Fog: 0
+  m_FogColor: {r: 0.047169805, g: 0.047169805, b: 0.047169805, a: 1}
   m_FogMode: 3
   m_FogDensity: 0.06
   m_LinearFogStart: 0
@@ -129,7 +129,7 @@ GameObject:
   m_Component:
   - component: {fileID: 12115321}
   - component: {fileID: 12115322}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Escalera 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -380,7 +380,7 @@ GameObject:
   m_Component:
   - component: {fileID: 173205660}
   - component: {fileID: 173205661}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Plataforma 5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -423,6 +423,112 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2.8205879, y: 0.26020104, z: 2.869597}
   m_Center: {x: -0.22551787, y: -0.11541298, z: -0.0009937286}
+--- !u!1 &200963219
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 200963220}
+  - component: {fileID: 200963221}
+  m_Layer: 0
+  m_Name: "Caba\xF1a Pared delantera 3"
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &200963220
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 200963219}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -5.309, y: 20.564, z: 1.314}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1860977856}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &200963221
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 200963219}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.0414431, y: 4.412425, z: 0.12115413}
+  m_Center: {x: 1.9651674, y: -0.21874247, z: 0.027891062}
+--- !u!1 &237754222
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 237754223}
+  - component: {fileID: 237754224}
+  m_Layer: 0
+  m_Name: "Caba\xF1a Pared delantera 2"
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &237754223
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 237754222}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -3.958, y: 20.564, z: 1.314}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1860977856}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &237754224
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 237754222}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.3567502, y: 2.365371, z: 0.12115413}
+  m_Center: {x: 1.8039733, y: 0.84232986, z: 0.027891062}
 --- !u!1 &246274426
 GameObject:
   m_ObjectHideFlags: 0
@@ -648,7 +754,7 @@ GameObject:
   m_Component:
   - component: {fileID: 396006461}
   - component: {fileID: 396006462}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Escalera 7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -922,7 +1028,7 @@ GameObject:
   m_Component:
   - component: {fileID: 515036004}
   - component: {fileID: 515036005}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Plataforma 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2322,7 +2428,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1012519331}
   - component: {fileID: 1012519332}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Plataforma 6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2429,7 +2535,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1054434220}
   - component: {fileID: 1054434221}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Escalera 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2482,7 +2588,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1088644389}
   - component: {fileID: 1088644390}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Plataforma 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2535,7 +2641,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1128301096}
   - component: {fileID: 1128301097}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Escalera 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2747,7 +2853,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1219549116}
   - component: {fileID: 1219549117}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Escalera 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3181,7 +3287,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1282796244}
   - component: {fileID: 1282796245}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Plataforma 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3468,7 +3574,7 @@ Transform:
   m_GameObject: {fileID: 1320502457}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 408.5564, y: 31.99, z: 9.508}
+  m_LocalPosition: {x: 406.2164, y: 32.694, z: 14.408}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3560,7 +3666,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1320746407}
   - component: {fileID: 1320746408}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Escalera 5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3740,7 +3846,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1374876273}
   - component: {fileID: 1374876274}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Plataforma 8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3925,7 +4031,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1504566293}
   - component: {fileID: 1504566294}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Plataforma SUPERIOR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3968,6 +4074,59 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 12.0615225, y: 0.35504198, z: 9.68634}
   m_Center: {x: 4.0708804, y: -0.1628334, z: -2.8340774}
+--- !u!1 &1516398136
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1516398137}
+  - component: {fileID: 1516398138}
+  m_Layer: 0
+  m_Name: "Caba\xF1a Pared Izquierda"
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1516398137
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1516398136}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4.48, y: 18.48, z: -3.84}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1860977856}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1516398138
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1516398136}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.08871445, y: 4.462496, z: 6.61917}
+  m_Center: {x: -0.07781756, y: 1.8908937, z: 1.8754411}
 --- !u!1 &1558582551
 GameObject:
   m_ObjectHideFlags: 0
@@ -4016,6 +4175,59 @@ Transform:
   - {fileID: 1011705314}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+--- !u!1 &1567302847
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1567302848}
+  - component: {fileID: 1567302849}
+  m_Layer: 0
+  m_Name: "Caba\xF1a Pared delantera"
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1567302848
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1567302847}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.925, y: 18.495, z: 1.314}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1860977856}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1567302849
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1567302847}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 5.9467154, y: 4.467787, z: 0.12115413}
+  m_Center: {x: 3.4324217, y: 1.8935387, z: 0.027891062}
 --- !u!1001 &1595830853
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4110,7 +4322,19 @@ PrefabInstance:
       addedObject: {fileID: 384043826}
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 6ff2421773a948a40979f2e6eb4090df, type: 3}
       insertIndex: -1
+      addedObject: {fileID: 1567302848}
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 6ff2421773a948a40979f2e6eb4090df, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 237754223}
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 6ff2421773a948a40979f2e6eb4090df, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 200963220}
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 6ff2421773a948a40979f2e6eb4090df, type: 3}
+      insertIndex: -1
       addedObject: {fileID: 1357995851}
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 6ff2421773a948a40979f2e6eb4090df, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1516398137}
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 6ff2421773a948a40979f2e6eb4090df, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1504566293}
@@ -4137,6 +4361,75 @@ PrefabInstance:
       addedObject: {fileID: 1651869567}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6ff2421773a948a40979f2e6eb4090df, type: 3}
+--- !u!1001 &1644068539
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 368119408963178501, guid: c80d1cf606442424c8364d92516e29fe, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 16.639078
+      objectReference: {fileID: 0}
+    - target: {fileID: 368119408963178501, guid: c80d1cf606442424c8364d92516e29fe, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 16.639078
+      objectReference: {fileID: 0}
+    - target: {fileID: 368119408963178501, guid: c80d1cf606442424c8364d92516e29fe, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 16.639078
+      objectReference: {fileID: 0}
+    - target: {fileID: 368119408963178501, guid: c80d1cf606442424c8364d92516e29fe, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 751.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 368119408963178501, guid: c80d1cf606442424c8364d92516e29fe, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 29.92
+      objectReference: {fileID: 0}
+    - target: {fileID: 368119408963178501, guid: c80d1cf606442424c8364d92516e29fe, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 778.55
+      objectReference: {fileID: 0}
+    - target: {fileID: 368119408963178501, guid: c80d1cf606442424c8364d92516e29fe, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 368119408963178501, guid: c80d1cf606442424c8364d92516e29fe, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.000000015454312
+      objectReference: {fileID: 0}
+    - target: {fileID: 368119408963178501, guid: c80d1cf606442424c8364d92516e29fe, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 368119408963178501, guid: c80d1cf606442424c8364d92516e29fe, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.000000015454312
+      objectReference: {fileID: 0}
+    - target: {fileID: 368119408963178501, guid: c80d1cf606442424c8364d92516e29fe, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 368119408963178501, guid: c80d1cf606442424c8364d92516e29fe, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 368119408963178501, guid: c80d1cf606442424c8364d92516e29fe, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1031326558597221055, guid: c80d1cf606442424c8364d92516e29fe, type: 3}
+      propertyPath: m_Name
+      value: Roca del Oso 2
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c80d1cf606442424c8364d92516e29fe, type: 3}
 --- !u!1 &1651869566
 GameObject:
   m_ObjectHideFlags: 0
@@ -4147,7 +4440,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1651869567}
   - component: {fileID: 1651869568}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Escalera 8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4286,7 +4579,7 @@ Transform:
   m_GameObject: {fileID: 1659547167}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 408.54, y: 31.416, z: 9.1}
+  m_LocalPosition: {x: 406.2, y: 32.12, z: 14}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4336,7 +4629,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1711855911}
   - component: {fileID: 1711855912}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Plataforma 7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4586,7 +4879,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1821694867}
   - component: {fileID: 1821694868}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Plataforma 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4740,6 +5033,75 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 6ff2421773a948a40979f2e6eb4090df, type: 3}
   m_PrefabInstance: {fileID: 1595830853}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1894126454
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 368119408963178501, guid: c80d1cf606442424c8364d92516e29fe, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 16.639078
+      objectReference: {fileID: 0}
+    - target: {fileID: 368119408963178501, guid: c80d1cf606442424c8364d92516e29fe, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 16.639078
+      objectReference: {fileID: 0}
+    - target: {fileID: 368119408963178501, guid: c80d1cf606442424c8364d92516e29fe, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 16.639078
+      objectReference: {fileID: 0}
+    - target: {fileID: 368119408963178501, guid: c80d1cf606442424c8364d92516e29fe, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 760.33
+      objectReference: {fileID: 0}
+    - target: {fileID: 368119408963178501, guid: c80d1cf606442424c8364d92516e29fe, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 29.92
+      objectReference: {fileID: 0}
+    - target: {fileID: 368119408963178501, guid: c80d1cf606442424c8364d92516e29fe, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 769.64
+      objectReference: {fileID: 0}
+    - target: {fileID: 368119408963178501, guid: c80d1cf606442424c8364d92516e29fe, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 368119408963178501, guid: c80d1cf606442424c8364d92516e29fe, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.000000015454312
+      objectReference: {fileID: 0}
+    - target: {fileID: 368119408963178501, guid: c80d1cf606442424c8364d92516e29fe, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 368119408963178501, guid: c80d1cf606442424c8364d92516e29fe, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.000000015454312
+      objectReference: {fileID: 0}
+    - target: {fileID: 368119408963178501, guid: c80d1cf606442424c8364d92516e29fe, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 368119408963178501, guid: c80d1cf606442424c8364d92516e29fe, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 368119408963178501, guid: c80d1cf606442424c8364d92516e29fe, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1031326558597221055, guid: c80d1cf606442424c8364d92516e29fe, type: 3}
+      propertyPath: m_Name
+      value: Roca del Oso 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c80d1cf606442424c8364d92516e29fe, type: 3}
 --- !u!1 &1926666377
 GameObject:
   m_ObjectHideFlags: 0
@@ -5561,7 +5923,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2113728891}
   - component: {fileID: 2113728892}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Escalera 6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5832,3 +6194,5 @@ SceneRoots:
   - {fileID: 1986413662}
   - {fileID: 1595830853}
   - {fileID: 367657330}
+  - {fileID: 1894126454}
+  - {fileID: 1644068539}
