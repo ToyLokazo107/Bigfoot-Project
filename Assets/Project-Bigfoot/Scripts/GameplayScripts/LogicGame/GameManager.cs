@@ -7,6 +7,8 @@ public class GameManager : MonoBehaviour
 
     public GameStatus currentStatus;
 
+    public MusicDatabase musicDatabase;
+
     private void Awake()
     {
         if (Instance == null)
