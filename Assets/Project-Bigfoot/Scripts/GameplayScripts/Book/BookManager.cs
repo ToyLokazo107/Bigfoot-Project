@@ -27,7 +27,7 @@ public class BookManager : MonoBehaviour
 
     private void UpdateCounter()
     {
-        counterText.text = "Notes: " + notesArchived + "/5";
+        counterText.text = "Notes: " + notesArchived + "/4";
     }
     public int GetNotesArchived()
     {

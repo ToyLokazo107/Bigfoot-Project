@@ -11,7 +11,7 @@ public class CaveEntrance : MonoBehaviour
             return;
         }
 
-        if (BookManager.Instance.GetNotesArchived() < 5)
+        if (BookManager.Instance.GetNotesArchived() < 4)
         {
             Debug.Log("I need more information before entering.");
             return;
