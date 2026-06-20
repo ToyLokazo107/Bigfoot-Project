@@ -16,7 +16,12 @@ MonoBehaviour:
     SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects:
-    - {fileID: 8300000, guid: ccdc1026f90774226b4c0759093380b3, type: 3}
+    - {fileID: 8300000, guid: 276b951ff13e6454dbaaaaa7af579b52, type: 3}
+    - {fileID: 8300000, guid: 4d3d0b25f5f466d4a9216c2b40195a6a, type: 3}
+    - {fileID: 8300000, guid: 6fd428a8512e0de4dbd1b0263d06e222, type: 3}
+    - {fileID: 8300000, guid: 8ab6402675d5b39418e3bb773f843a39, type: 3}
+    - {fileID: 8300000, guid: 1ca0338635d884b40bc7eae6ec32af0a, type: 3}
+    - {fileID: 8300000, guid: f51ed849991bc6c4488d1b56b2cc4b9b, type: 3}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -35,16 +40,76 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 12
-      Data: 1
+      Data: 6
     - Name: 
       Entry: 7
       Data: 
     - Name: $k
       Entry: 1
-      Data: award
+      Data: AudioMateo
     - Name: $v
       Entry: 10
       Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: AudioLucia
+    - Name: $v
+      Entry: 10
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: AudioDiego
+    - Name: $v
+      Entry: 10
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: AudioJavier
+    - Name: $v
+      Entry: 10
+      Data: 3
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: WalkieTalkie-On
+    - Name: $v
+      Entry: 10
+      Data: 4
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: WalkieTalkie-Off
+    - Name: $v
+      Entry: 10
+      Data: 5
     - Name: 
       Entry: 8
       Data: 
