@@ -6,6 +6,9 @@ public class StaminaPlayer : MonoBehaviour
     public float maxStamina = 100f;
     public float staminaRate = 10f;
 
+    public int maxHealth = 100;
+    public int currentHealth = 100;
+
     public bool isRecharging = false;
 
     public void DecreaseStamina()
@@ -39,5 +42,14 @@ public class StaminaPlayer : MonoBehaviour
     public bool CanSprint()
     {
         return currentStamina > 0 && !isRecharging;
+    }
+    public void TakeDamage(int damage)
+    {
+        currentHealth -= damage;
+
+        if (currentHealth <= 0)
+        {
+            Debug.Log("Player Dead");
+        }
     }
 }

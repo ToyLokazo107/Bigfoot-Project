@@ -15,5 +15,6 @@ MonoBehaviour:
   ID: 15
   objectName: Shotgun
   objectType: 0
-  Icon: {fileID: 0}
+  Icon: {fileID: -141550005, guid: 26e80b810da056d43a4f06606487cf03, type: 3}
+  objectPrefab: {fileID: 0}
   Description: Shotgun

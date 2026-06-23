@@ -44,9 +44,15 @@ public class PlayerHandController : MonoBehaviour
 
     public void UseCurrentObject()
     {
+        Debug.Log("CLICK USE CURRENT OBJECT");
         if (currentObject != null)
         {
+            Debug.Log("Using object: " + currentObject.name);
             currentObject.Use();
+        }
+        else
+        {
+            Debug.Log("No object in hand");
         }
     }
 

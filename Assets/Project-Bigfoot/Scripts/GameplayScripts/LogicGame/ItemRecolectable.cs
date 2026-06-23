@@ -65,6 +65,14 @@ public class ItemRecolectable : InteractableObject
 
     public override void Use()
     {
+        IUsableItem usableItem = GetComponent<IUsableItem>();
+
+        if (usableItem != null)
+        {
+            usableItem.UseItem();
+            return;
+        }
+
         if (!isEquipped || luzLinterna == null) return;
 
         isOn = !isOn;
