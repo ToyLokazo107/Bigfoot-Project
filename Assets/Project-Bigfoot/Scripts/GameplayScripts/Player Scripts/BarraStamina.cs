@@ -5,14 +5,14 @@ public class BarraStamina : MonoBehaviour
 {
     public Image fillImage;
 
-    private StaminaPlayer player;
+    [SerializeField]private StaminaPlayer player;
     private float maxStamina;
 
     private void Start()
     {
         fillImage = GetComponent<Image>();
 
-        player = GameObject.FindWithTag("Player").GetComponent<StaminaPlayer>();
+        //player = GameObject.FindWithTag("Player").GetComponent<StaminaPlayer>();
 
         maxStamina = player.maxStamina;
     }

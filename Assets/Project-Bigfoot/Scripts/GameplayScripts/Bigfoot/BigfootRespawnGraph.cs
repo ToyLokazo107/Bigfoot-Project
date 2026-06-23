@@ -5,7 +5,7 @@ using Bigfoot.Collections.Graphs;
 public class BigfootRespawnGraph : MonoBehaviour
 {
     private enum EstadoEnemigo { Rondando, Persiguiendo, Huyendo }
-    private EstadoEnemigo estadoActual = EstadoEnemigo.Rondando;
+    [SerializeField]private EstadoEnemigo estadoActual = EstadoEnemigo.Rondando;
 
     [Header("References")]
     public Transform player;
@@ -144,7 +144,19 @@ public class BigfootRespawnGraph : MonoBehaviour
             HuirAlNodoMasLejano();
         }
     }
+    private void OnTriggerEnter(Collider other)
+    {
+        // Verificamos si chocamos contra el jugador mientras lo perseguíamos
+        if (estadoActual == EstadoEnemigo.Persiguiendo && other.gameObject.CompareTag("Player"))
+        {
+            Debug.Log("¡El Bigfoot golpeó al jugador!");
 
+            // Aquí puedes llamar al sistema de daño del jugador si tienes uno, ej:
+            // collision.gameObject.GetComponent<PlayerHealth>().TakeDamage(20);
+
+            HuirAlNodoMasLejano();
+        }
+    }
     private void HuirAlNodoMasLejano()
     {
         Transform farthestPoint = GetFarthestPoint();
