@@ -24,11 +24,13 @@ public class ShotgunBullet : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        BigfootHealth bigfoot = other.GetComponent<BigfootHealth>();
+        BigfootHealth bigfoot = other.GetComponentInParent<BigfootHealth>();
+        Debug.Log("Hit: " + other.name + " Parent: " + other.transform.root.name);
 
         if (bigfoot != null)
         {
             bigfoot.TakeDamage(damage);
+            Debug.Log("Bigfoot hit");
         }
 
         Destroy(gameObject);

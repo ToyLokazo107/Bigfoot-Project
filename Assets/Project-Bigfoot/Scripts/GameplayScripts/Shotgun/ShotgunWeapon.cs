@@ -39,7 +39,13 @@ public class ShotgunWeapon : MonoBehaviour, IUsableItem
 
         Vector3 direction = (targetPoint - muzzlePoint.position).normalized;
 
-        GameObject bullet = Instantiate(bulletPrefab,muzzlePoint.position,Quaternion.LookRotation(direction));
+        Vector3 shootDirection = playerCamera.transform.forward;
+
+        GameObject bullet = Instantiate(
+            bulletPrefab,
+            muzzlePoint.position,
+            Quaternion.LookRotation(shootDirection)
+        );
 
         ShotgunBullet bulletScript = bullet.GetComponent<ShotgunBullet>();
 
