@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.AI;
 using Bigfoot.Collections.Graphs;
+using Unity.Cinemachine;
 
 public class BigfootRespawnGraph : MonoBehaviour
 {
@@ -31,14 +32,13 @@ public class BigfootRespawnGraph : MonoBehaviour
     private Node<Transform> nodoDestinoActual;
     private float temporizadorAtaqueRandom;
 
+
     private void Start()
     {
         CreateGraph();
 
-        // Configurar velocidad inicial
         agent.speed = velocidadRondando;
 
-        // Establecer el primer tiempo aleatorio para el ataque sorpresa
         ReiniciarTemporizadorAtaque();
 
         if (graph.Nodes.Count > 0)
@@ -54,14 +54,12 @@ public class BigfootRespawnGraph : MonoBehaviour
 
     private void Update()
     {
-        // Si el juego no está en cacería o el agente no está activo, detenemos la lógica
         if (GameManager.Instance != null && GameManager.Instance.currentStatus != GameStatus.EnCaceria)
         {
             if (agent.hasPath) agent.ResetPath();
             return;
         }
 
-        // CONTROLADOR DE ESTADOS
         switch (estadoActual)
         {
             case EstadoEnemigo.Rondando:
@@ -81,7 +79,6 @@ public class BigfootRespawnGraph : MonoBehaviour
 
     private void LógicaRondar()
     {
-        // Si llegó al nodo actual de patrulla, cambia al siguiente
         if (!agent.pathPending && agent.remainingDistance <= stoppingDistanceNode)
         {
             CambiarANextNodoRondando();
@@ -94,7 +91,6 @@ public class BigfootRespawnGraph : MonoBehaviour
 
         temporizadorAtaqueRandom -= Time.deltaTime;
 
-        // ¡Llegó el momento de atacar por sorpresa!
         if (temporizadorAtaqueRandom <= 0f)
         {
             IniciarPersecucionSorpresa();
@@ -112,16 +108,13 @@ public class BigfootRespawnGraph : MonoBehaviour
     {
         if (player == null) return;
 
-        // Actualiza constantemente la posición del jugador para cazarlo
         agent.SetDestination(player.position);
     }
 
     private void LógicaHuyendo()
     {
-        // Al huir, revisamos si ya llegó con éxito al nodo más lejano asignado
         if (!agent.pathPending && agent.remainingDistance <= stoppingDistanceNode)
         {
-            // Una vez a salvo en el nodo lejano, vuelve a patrullar con normalidad
             estadoActual = EstadoEnemigo.Rondando;
             agent.speed = velocidadRondando;
             ReiniciarTemporizadorAtaque();
@@ -130,15 +123,12 @@ public class BigfootRespawnGraph : MonoBehaviour
         }
     }
 
-    // DETECCIÓN DE COLISIÓN CON EL PLAYER
     private void OnCollisionEnter(Collision collision)
     {
-        // Verificamos si chocamos contra el jugador mientras lo perseguíamos
         if (estadoActual == EstadoEnemigo.Persiguiendo && collision.gameObject.CompareTag("Player"))
         {
             Debug.Log("¡El Bigfoot golpeó al jugador!");
 
-            // Aquí puedes llamar al sistema de daño del jugador si tienes uno, ej:
             // collision.gameObject.GetComponent<PlayerHealth>().TakeDamage(20);
 
             HuirAlNodoMasLejano();
@@ -146,12 +136,10 @@ public class BigfootRespawnGraph : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        // Verificamos si chocamos contra el jugador mientras lo perseguíamos
         if (estadoActual == EstadoEnemigo.Persiguiendo && other.gameObject.CompareTag("Player"))
         {
             Debug.Log("¡El Bigfoot golpeó al jugador!");
 
-            // Aquí puedes llamar al sistema de daño del jugador si tienes uno, ej:
             // collision.gameObject.GetComponent<PlayerHealth>().TakeDamage(20);
 
             HuirAlNodoMasLejano();
@@ -164,9 +152,8 @@ public class BigfootRespawnGraph : MonoBehaviour
         if (farthestPoint == null) return;
 
         estadoActual = EstadoEnemigo.Huyendo;
-        agent.speed = velocidadHuyendo; // Cambia su velocidad a modo Huida (más rápido)
+        agent.speed = velocidadHuyendo;
 
-        // Sincronizamos nuestro sistema de grafos con este punto de escape
         foreach (var node in graph.Nodes)
         {
             if (node.Value == farthestPoint)
@@ -176,7 +163,6 @@ public class BigfootRespawnGraph : MonoBehaviour
             }
         }
 
-        // Le ordenamos al NavMeshAgent correr hacia allá de inmediato
         agent.SetDestination(farthestPoint.position);
         Debug.Log("¡El Bigfoot está huyendo rápidamente hacia: " + farthestPoint.name);
     }
