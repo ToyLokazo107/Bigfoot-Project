@@ -7,7 +7,7 @@ public class ShotgunWeapon : MonoBehaviour, IUsableItem
     public GameObject bulletPrefab;
 
     [Header("Efectos de Disparo")]
-    // Referencia a las partículas que tienes en la Jerarquía
+
     public ParticleSystem particulasDisparo;
 
     [Header("Configuración de Munición")]
@@ -34,15 +34,11 @@ public class ShotgunWeapon : MonoBehaviour, IUsableItem
 
         currentAmmo--;
 
-        // REPRODUCCIÓN DE PARTÍCULAS:
         if (particulasDisparo != null)
         {
-            // Movemos las partículas a la posición exacta de la punta del arma (muzzle)
             particulasDisparo.transform.position = muzzlePoint.position;
-            // Alineamos las partículas con la rotación del cañón para que salgan hacia adelante
             particulasDisparo.transform.rotation = muzzlePoint.rotation;
 
-            // Activamos la emisión de las partículas
             particulasDisparo.Play();
         }
 

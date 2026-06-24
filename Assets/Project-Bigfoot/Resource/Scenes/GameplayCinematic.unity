@@ -265,7 +265,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CarMovement
   destino: {fileID: 1261405545}
-  velocidad: 5
+  velocidad: 7
   distanciaMinima: 0.2
 --- !u!4 &839971144
 Transform:

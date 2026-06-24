@@ -7,6 +7,17 @@ public class AudioGameplay : MonoBehaviour
 
     void Start()
     {
-        feelAudio.PlayFeedbacks();
+        if (feelAudio != null)
+        {
+            feelAudio.PlayFeedbacks();
+        }
+    }
+
+    private void OnDestroy()
+    {
+        if (feelAudio != null)
+        {
+            feelAudio.StopFeedbacks();
+        }
     }
 }

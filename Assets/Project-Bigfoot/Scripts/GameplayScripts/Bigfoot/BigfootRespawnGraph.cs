@@ -19,13 +19,13 @@ public class BigfootRespawnGraph : MonoBehaviour
     public float stoppingDistanceNode = 2.0f;
 
     [Header("Velocidades del Bigfoot")]
-    public float velocidadRondando = 3.5f;
-    public float velocidadPersiguiendo = 7f;
-    public float velocidadHuyendo = 9f;
+    public float velocidadRondando = 5.5f;
+    public float velocidadPersiguiendo = 8.5f;
+    public float velocidadHuyendo = 12f;
 
     [Header("Configuración de Ataque Sorpresa")]
-    public float tiempoMinimoParaAtacar = 10f;
-    public float tiempoMaximoParaAtacar = 25f;
+    public float tiempoMinimoParaAtacar = 24f;
+    public float tiempoMaximoParaAtacar = 30f;
 
     private NonOrientedGraph<Transform> graph = new NonOrientedGraph<Transform>();
     private Node<Transform> nodoDestinoActual;

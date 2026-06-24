@@ -12,8 +12,6 @@ public class BarraStamina : MonoBehaviour
     {
         fillImage = GetComponent<Image>();
 
-        //player = GameObject.FindWithTag("Player").GetComponent<StaminaPlayer>();
-
         maxStamina = player.maxStamina;
     }
 
