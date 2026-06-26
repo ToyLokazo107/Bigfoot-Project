@@ -9817,7 +9817,7 @@ GameObject:
   m_Component:
   - component: {fileID: 923376759}
   - component: {fileID: 923376760}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: MateoFeedback
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10619,7 +10619,7 @@ GameObject:
   m_Component:
   - component: {fileID: 987720894}
   - component: {fileID: 987720895}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: DiegoFeedback
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11503,7 +11503,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1073451664}
   - component: {fileID: 1073451663}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: LuciaFeedback
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12549,7 +12549,7 @@ GameObject:
   - component: {fileID: 1254630551}
   - component: {fileID: 1254630550}
   - component: {fileID: 1254630549}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13153,7 +13153,7 @@ Transform:
   m_GameObject: {fileID: 1320502457}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.06448052, z: -0, w: -0.99791896}
-  m_LocalPosition: {x: 254.95985, y: 32.694, z: 14.41524}
+  m_LocalPosition: {x: 266.16376, y: 87.074, z: 303.10672}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -13970,7 +13970,7 @@ GameObject:
   - component: {fileID: 1524409303}
   - component: {fileID: 1524409302}
   - component: {fileID: 1524409304}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CassettePlayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14437,7 +14437,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1619174242}
   - component: {fileID: 1619174243}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: JavierFeedback
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20234,7 +20234,7 @@ Transform:
   m_GameObject: {fileID: 1659547167}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.06448052, z: -0, w: -0.99791896}
-  m_LocalPosition: {x: 254.9961, y: 32.12, z: 14.008522}
+  m_LocalPosition: {x: 266.2, y: 86.5, z: 302.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -20797,7 +20797,7 @@ Rigidbody:
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!65 &1773783529
 BoxCollider:
   m_ObjectHideFlags: 0
