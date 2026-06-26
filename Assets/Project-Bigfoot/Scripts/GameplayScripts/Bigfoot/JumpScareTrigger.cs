@@ -10,7 +10,7 @@ public class JumpScareTrigger : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             jumpScareUI.Trigger();
-            gameObject.SetActive(false);
+
         }
     }
 }

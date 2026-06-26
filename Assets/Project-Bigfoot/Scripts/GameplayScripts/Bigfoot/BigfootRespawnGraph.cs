@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using Bigfoot.Collections.Graphs;
 using Unity.Cinemachine;
+using System.Collections;
 
 public class BigfootRespawnGraph : MonoBehaviour
 {
@@ -31,6 +32,8 @@ public class BigfootRespawnGraph : MonoBehaviour
     private NonOrientedGraph<Transform> graph = new NonOrientedGraph<Transform>();
     private Node<Transform> nodoDestinoActual;
     private float temporizadorAtaqueRandom;
+
+    public Animator animator;
 
 
     private void Start()
@@ -75,6 +78,23 @@ public class BigfootRespawnGraph : MonoBehaviour
                 LógicaHuyendo();
                 break;
         }
+    }
+
+    private IEnumerator AttackPlayer()
+    {
+        agent.isStopped = true;
+
+        animator.SetTrigger("Attack");
+
+        yield return new WaitForSeconds(0.6f);
+
+        Debug.Log("Bigfoot golpeó al jugador");
+
+        yield return new WaitForSeconds(0.4f);
+
+        agent.isStopped = false;
+
+        HuirAlNodoMasLejano();
     }
 
     private void LógicaRondar()
@@ -138,11 +158,9 @@ public class BigfootRespawnGraph : MonoBehaviour
     {
         if (estadoActual == EstadoEnemigo.Persiguiendo && other.gameObject.CompareTag("Player"))
         {
-            Debug.Log("¡El Bigfoot golpeó al jugador!");
+            Debug.Log("¡El Bigfoot alcanzó al jugador!");
 
-            // collision.gameObject.GetComponent<PlayerHealth>().TakeDamage(20);
-
-            HuirAlNodoMasLejano();
+            StartCoroutine(AttackPlayer());
         }
     }
     private void HuirAlNodoMasLejano()
