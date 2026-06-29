@@ -15534,7 +15534,7 @@ MonoBehaviour:
         RandomizeOutput: 0
         RandomMultiplier: {x: 0.8, y: 1}
         RandomizeDuration: 0
-        RandomDurationMultiplier: {x: 0.5, y: 2}
+        RandomDurationMultiplier: {x: 0.5, y: 10}
         UseRange: 0
         RangeDistance: 5
         UseRangeFalloff: 0
@@ -15567,7 +15567,7 @@ MonoBehaviour:
           ButtonText: Automatic Shaker Setup
         Owner: {fileID: 1471509327}
         DebugActive: 0
-        Sfx: {fileID: 8300000, guid: 90f46f19b595d1c4fbb02a78e161be75, type: 3}
+        Sfx: {fileID: 8300000, guid: f8acc6d429c27f54da3e07d0e6489695, type: 3}
         RandomSfx: []
         TestPlayButton:
           ButtonText: Debug Play Sound
