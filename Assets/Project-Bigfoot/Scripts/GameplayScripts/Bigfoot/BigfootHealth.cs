@@ -1,9 +1,12 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BigfootHealth : MonoBehaviour
 {
     public int maxHealth = 100;
     public int currentHealth = 100;
+
+    public string victorySceneName = "Victory";
 
     public void TakeDamage(int damage)
     {
@@ -20,6 +23,6 @@ public class BigfootHealth : MonoBehaviour
     private void Die()
     {
         Debug.Log("BIGFOOT DEFEATED");
-        gameObject.SetActive(false);
+        SceneManager.LoadScene(victorySceneName);
     }
 }
