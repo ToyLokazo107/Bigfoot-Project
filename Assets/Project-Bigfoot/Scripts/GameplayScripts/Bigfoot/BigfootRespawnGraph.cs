@@ -273,4 +273,33 @@ public class BigfootRespawnGraph : MonoBehaviour
 
         return farthest;
     }
+
+    private void OnDrawGizmos()
+    {
+        if (spawnPoints == null || spawnPoints.Length == 0) return;
+
+        Gizmos.color = Color.cyan;
+
+        for (int i = 0; i < spawnPoints.Length; i++)
+        {
+            if (spawnPoints[i] != null)
+            {
+                Gizmos.DrawSphere(spawnPoints[i].position, 0.5f);
+
+                if (i < spawnPoints.Length - 1 && spawnPoints[i + 1] != null)
+                {
+                    Gizmos.color = Color.white;
+                    Gizmos.DrawLine(spawnPoints[i].position, spawnPoints[i + 1].position);
+                    Gizmos.color = Color.cyan;
+                }
+            }
+        }
+
+        if (spawnPoints.Length > 2 && spawnPoints[0] != null && spawnPoints[spawnPoints.Length - 1] != null)
+        {
+            Gizmos.color = Color.white;
+            Gizmos.DrawLine(spawnPoints[spawnPoints.Length - 1].position, spawnPoints[0].position);
+        }
+    }
 }
+
