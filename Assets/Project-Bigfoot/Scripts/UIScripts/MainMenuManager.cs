@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Sirenix.OdinInspector;
@@ -9,10 +10,17 @@ public class MainMenuManager : MonoBehaviour
 
     public void StartGame()
     {
+        StartCoroutine(StartGameCoroutine());
+    }
+
+    private IEnumerator StartGameCoroutine()
+    {
         if (GameManager.Instance != null)
         {
             GameManager.Instance.StartGame();
         }
+
+        yield return new WaitForSeconds(2f);
 
         SceneManager.LoadScene("GamePlayCinematic");
     }

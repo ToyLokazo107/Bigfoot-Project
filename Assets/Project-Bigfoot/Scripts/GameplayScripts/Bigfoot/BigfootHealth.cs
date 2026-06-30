@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class BigfootHealth : MonoBehaviour
 {
@@ -23,6 +24,14 @@ public class BigfootHealth : MonoBehaviour
     private void Die()
     {
         Debug.Log("BIGFOOT DEFEATED");
+
+        StartCoroutine(VictorySequence());
+    }
+
+    private IEnumerator VictorySequence()
+    {
+        yield return new WaitForSeconds(3f);
+
         SceneManager.LoadScene(victorySceneName);
     }
 }

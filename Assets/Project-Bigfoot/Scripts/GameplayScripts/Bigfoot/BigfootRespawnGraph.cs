@@ -149,7 +149,6 @@ public class BigfootRespawnGraph : MonoBehaviour
         {
             Debug.Log("¡El Bigfoot golpeó al jugador!");
 
-            // collision.gameObject.GetComponent<PlayerHealth>().TakeDamage(20);
 
             HuirAlNodoMasLejano();
         }
