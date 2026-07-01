@@ -58,7 +58,7 @@ Material:
     - _Wave_Speed: 0.01
     m_Colors:
     - _Foam_Color: {r: 1, g: 1, b: 1, a: 0.8509804}
-    - _Water_Color: {r: 0.07254217, g: 0.058823552, b: 0.9529412, a: 0.7529412}
+    - _Water_Color: {r: 0.094339624, g: 0.15481234, b: 0.3773585, a: 0.9019608}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!114 &2490189419767720270
