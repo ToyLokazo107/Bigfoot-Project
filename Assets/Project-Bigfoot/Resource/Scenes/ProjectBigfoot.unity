@@ -851,6 +851,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MainMenuManager
   optionsPanel: {fileID: 1158761227}
+  startButton: {fileID: 1201998336}
+  optionsButton: {fileID: 1281323955}
+  creditsButton: {fileID: 693712376}
+  exitButton: {fileID: 1236377893}
 --- !u!4 &432991114
 Transform:
   m_ObjectHideFlags: 0
