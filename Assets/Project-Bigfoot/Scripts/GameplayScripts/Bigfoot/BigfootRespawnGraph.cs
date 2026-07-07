@@ -35,6 +35,7 @@ public class BigfootRespawnGraph : MonoBehaviour
 
     public Animator animator;
 
+    public PlayerHealth playerHealth;
 
     private void Start()
     {
@@ -86,16 +87,13 @@ public class BigfootRespawnGraph : MonoBehaviour
 
         animator.SetTrigger("Attack");
 
-        yield return new WaitForSeconds(0.6f);
-
-        Debug.Log("Bigfoot golpeó al jugador");
-
-        yield return new WaitForSeconds(0.4f);
+        yield return new WaitForSeconds(1f);
 
         agent.isStopped = false;
 
         HuirAlNodoMasLejano();
     }
+
 
     private void LógicaRondar()
     {
@@ -154,9 +152,22 @@ public class BigfootRespawnGraph : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (estadoActual == EstadoEnemigo.Persiguiendo && other.gameObject.CompareTag("Player"))
+        if (estadoActual == EstadoEnemigo.Persiguiendo && other.CompareTag("Player"))
         {
-            Debug.Log("¡El Bigfoot alcanzó al jugador!");
+            Debug.Log("Bigfoot chocó con el jugador");
+
+            PlayerHealth playerHealth = other.GetComponent<PlayerHealth>();
+
+            if (playerHealth != null)
+            {
+                int damage = Random.Range(10, 21);
+                playerHealth.TakeDamage(damage);
+                Debug.Log("Daño al player: " + damage);
+            }
+            else
+            {
+                Debug.LogError("El Player no tiene PlayerHealth");
+            }
 
             StartCoroutine(AttackPlayer());
         }

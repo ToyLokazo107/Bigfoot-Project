@@ -4,8 +4,8 @@ using System.Collections;
 
 public class BigfootHealth : MonoBehaviour
 {
-    public int maxHealth = 100;
-    public int currentHealth = 100;
+    public int maxHealth = 10;
+    public int currentHealth = 10;
 
     public string victorySceneName = "Victory";
 
