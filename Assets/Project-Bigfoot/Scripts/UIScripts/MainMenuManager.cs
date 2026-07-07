@@ -1,7 +1,6 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using Sirenix.OdinInspector;
 using DG.Tweening;
 
 public class MainMenuManager : MonoBehaviour
@@ -17,6 +16,15 @@ public class MainMenuManager : MonoBehaviour
 
     private void Start()
     {
+        if (GameManager.Instance != null)
+        {
+            GameManager.Instance.ChangeStatus(GameStatus.MenuPrincipal);
+        }
+
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        Time.timeScale = 1f;
+
         AnimateButton(startButton, 0f);
         AnimateButton(optionsButton, 0.15f);
         AnimateButton(creditsButton, 0.30f);
@@ -32,7 +40,8 @@ public class MainMenuManager : MonoBehaviour
         button.DOScale(1.08f, 0.8f)
             .SetDelay(delay)
             .SetLoops(-1, LoopType.Yoyo)
-            .SetEase(Ease.InOutSine);
+            .SetEase(Ease.InOutSine)
+            .SetUpdate(true);
     }
 
     private void StopButtonAnimations()
@@ -54,19 +63,19 @@ public class MainMenuManager : MonoBehaviour
 
         if (startButton != null)
         {
-            startButton.DOScale(0.85f, 0.2f).SetEase(Ease.InBack);
+            startButton.DOScale(0.85f, 0.2f).SetEase(Ease.InBack).SetUpdate(true);
 
-            yield return new WaitForSeconds(0.25f);
+            yield return new WaitForSecondsRealtime(0.25f);
 
-            startButton.DOScale(1.2f, 0.4f).SetEase(Ease.OutBack);
+            startButton.DOScale(1.2f, 0.4f).SetEase(Ease.OutBack).SetUpdate(true);
         }
+
+        yield return new WaitForSecondsRealtime(2f);
 
         if (GameManager.Instance != null)
         {
             GameManager.Instance.StartGame();
         }
-
-        yield return new WaitForSeconds(2f);
 
         SceneManager.LoadScene("GamePlayCinematic");
     }
@@ -98,6 +107,14 @@ public class MainMenuManager : MonoBehaviour
     public void BackToMenu()
     {
         StopButtonAnimations();
-        SceneManager.LoadScene("ProjectBigfoot");
+
+        if (GameManager.Instance != null)
+        {
+            GameManager.Instance.BackToMenu();
+        }
+        else
+        {
+            SceneManager.LoadScene("ProjectBigfoot");
+        }
     }
 }

@@ -24,16 +24,29 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        ChangeStatus(GameStatus.EnCaceria);
+        if (SceneManager.GetActiveScene().name != "ProjectBigfoot")
+        {
+            ChangeStatus(GameStatus.EnCaceria);
+        }
+        else
+        {
+            ChangeStatus(GameStatus.MenuPrincipal);
+        }
     }
 
     public void ChangeStatus(GameStatus newStatus)
     {
         currentStatus = newStatus;
 
-        if (currentStatus == GameStatus.Pausa || currentStatus == GameStatus.MenuPrincipal)
+        if (currentStatus == GameStatus.Pausa)
         {
             Time.timeScale = 0f;
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
+        else if (currentStatus == GameStatus.MenuPrincipal)
+        {
+            Time.timeScale = 1f;
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
         }
@@ -45,7 +58,7 @@ public class GameManager : MonoBehaviour
         }
         else if (currentStatus == GameStatus.Derrota || currentStatus == GameStatus.Victoria)
         {
-            Time.timeScale = 0f;
+            Time.timeScale = 1f;
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
         }
@@ -58,6 +71,7 @@ public class GameManager : MonoBehaviour
 
     public void RestartGame()
     {
+        Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         ChangeStatus(GameStatus.EnCaceria);
     }
@@ -65,5 +79,11 @@ public class GameManager : MonoBehaviour
     public void FinishGame()
     {
         ChangeStatus(GameStatus.Victoria);
+    }
+
+    public void BackToMenu()
+    {
+        ChangeStatus(GameStatus.MenuPrincipal);
+        SceneManager.LoadScene("ProjectBigfoot");
     }
 }

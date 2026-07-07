@@ -24,13 +24,12 @@ public class BigfootHealth : MonoBehaviour
     private void Die()
     {
         Debug.Log("BIGFOOT DEFEATED");
-
         StartCoroutine(VictorySequence());
     }
 
     private IEnumerator VictorySequence()
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(1f);
 
         SceneManager.LoadScene(victorySceneName);
     }
